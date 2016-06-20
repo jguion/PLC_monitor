@@ -1,0 +1,11 @@
+.door_closed{
+  background-image: url("images/prison_bars_closed.jpg");
+  height: 277px;
+  width: 450px;
+}
+
+.door_open{
+  background-image: url("images/prison_bars_open.jpg");
+  height: 267px;
+  width: 400px;
+}

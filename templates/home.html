@@ -1,0 +1,37 @@
+{% load static swampdragon_tags %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Prison Monitor</title>
+    <link rel="stylesheet" href="/static/main.css" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>Prison demo</h1>
+
+<!-- This is our list of notifications -->
+<div id="cell_doors">
+    {% for door in object_list %}
+      {% if door.secured %}
+      <div class="door_closed" id="door{{ door.door_number }}">
+        Cell {{ door.door_number }} is closed.
+      </div>
+      {% else %}
+      <div class="door_open" id="door{{ door.door_number }}">
+        Cell {{ door.door_number }} is open!
+      </div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+
+<!-- SwampDragon -->
+{% swampdragon_settings %}
+<script type="text/javascript" src="{% static 'swampdragon/js/dist/swampdragon.min.js' %}"></script>
+
+<!-- notifications -->
+<script type="text/javascript" src="{{ STATIC_URL }}prison.js"></script>
+</body>
+</html>
